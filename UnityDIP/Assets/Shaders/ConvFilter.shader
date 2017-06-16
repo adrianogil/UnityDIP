@@ -9,6 +9,9 @@ Shader "DIP/ConvolutionalFilter"
             #pragma vertex vert
             #pragma fragment frag
 
+            uniform int _RGBMask[4];
+            uniform int _RGBMaskLength = 4;
+
             uniform int _KernelLength = 9;
             uniform float _Kernel[9];
 
@@ -54,7 +57,8 @@ Shader "DIP/ConvolutionalFilter"
 
                 // return float4(0,0,0,1);
 
-                return (texColors[0] + texColors[1] + texColors[2] + texColors[3] + texColors[4] + 
+                return float4(_RGBMask[0], _RGBMask[1], _RGBMask[2], _RGBMask[3]) * 
+                       (texColors[0] + texColors[1] + texColors[2] + texColors[3] + texColors[4] + 
                        texColors[5] + texColors[6] + texColors[7] + texColors[8]);
             }
 
