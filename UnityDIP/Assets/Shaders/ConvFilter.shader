@@ -14,6 +14,7 @@ Shader "DIP/ConvolutionalFilter"
 
             uniform int _KernelLength = 9;
             uniform float _Kernel[9];
+            uniform float _KernelDistance;
 
             sampler _MainTex;
             float4 _MainTex_TexelSize;
@@ -41,7 +42,7 @@ Shader "DIP/ConvolutionalFilter"
             half4 frag(vert_output o) : COLOR {
 
                 half4 texColors[9];
-                #define GRABPIXEL(px,py) tex2D( _MainTex, o.uv + float2(px * _MainTex_TexelSize.x, py * _MainTex_TexelSize.y))
+                #define GRABPIXEL(px,py) tex2D( _MainTex, o.uv + _KernelDistance * float2(px * _MainTex_TexelSize.x, py * _MainTex_TexelSize.y))
 
                 texColors[0] = _Kernel[0] * GRABPIXEL(-1,-1);
                 texColors[1] = _Kernel[1] * GRABPIXEL(-1, 0);

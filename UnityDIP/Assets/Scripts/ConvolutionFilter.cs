@@ -28,6 +28,8 @@ public class ConvolutionFilter : MonoBehaviour {
 
     public float kernelFactor = 1f;
 
+    public float distance = 1f;
+
     [HideInInspector]
     public float[] kernelweights = new float[9];
 
@@ -99,6 +101,7 @@ public class ConvolutionFilter : MonoBehaviour {
 
         Shader.SetGlobalFloatArray("_Kernel", w);
         Shader.SetGlobalFloat("_KernelLength", w.Length);
+        Shader.SetGlobalFloat("_KernelDistance", distance);
     }
 }
 
