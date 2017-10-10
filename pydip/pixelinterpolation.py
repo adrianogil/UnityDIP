@@ -19,7 +19,7 @@ img_signal = img[5,:]
 plt.plot(range(0,img.shape[1]), img_signal)
 plt.show()
 
-near_neighbor_filter = [0, 0.5, 1, 0.5, 0]
+near_neighbor_filter = [0, 0.25, 0.5, 0.25, 0]
 plt.plot(range(0,len(near_neighbor_filter)), near_neighbor_filter)
 plt.show()
 
