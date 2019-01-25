@@ -31,7 +31,8 @@ Shader "ColorSpace/RGB"
 
             float4 frag(v2f i) : COLOR
             {
-                float3 rgbPos = 0.5 + 0.5 * normalize(i.wPos - _CubePosition);
+                // float3 rgbPos = 0.5 + 0.5 * normalize(i.wPos - _CubePosition);
+                float3 rgbPos = i.wPos;
 
                 float4 color = 1;
                 color.rgb = rgbPos;
