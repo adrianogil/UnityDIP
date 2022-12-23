@@ -56,13 +56,19 @@ public class ColorGridWindow : EditorWindow
             for (int x = 0; x < cols; x++)
             {
                 if (colorGrid != null) {
-                    EditorGUILayout.ColorField(GUIContent.none,
-                                               colorGrid.GetColor(x, y),
-                                               false, true, false, null, GUILayout.Width(gridItemWidth));
+                    EditorGUILayout.ColorField(label:GUIContent.none,
+                                               value:colorGrid.GetColor(x, y),
+                                               showEyedropper:false, 
+                                               showAlpha:true, 
+                                               hdr:false, 
+                                               options:GUILayout.Width(gridItemWidth));
                 } else {
-                    EditorGUILayout.ColorField(GUIContent.none,
-                                               Color.Lerp(Color.red, Color.blue, (x + y * cols)/(1.0f * rows * cols)),
-                                               false, true, false, null, GUILayout.Width(gridItemWidth));
+                    EditorGUILayout.ColorField(label:GUIContent.none,
+                                               value:Color.Lerp(Color.red, Color.blue, (x + y * cols)/(1.0f * rows * cols)),
+                                               showEyedropper:false, 
+                                               showAlpha:true, 
+                                               hdr:false, 
+                                               options:GUILayout.Width(gridItemWidth));
                 }
 
             }
